@@ -3,7 +3,12 @@
 
      <div class="sidebar-wrapper">
             <div class="profile-container">
-                <img class="profile-img" src="{{site.baseurl}}/assets/images/{% if site.pic %}{{ site.pic }}{% else %}profile.png{% endif %}" alt="profile picture" />
+              {% if site.pic %}
+              <img class="profile-img" src="{{ site.pic }}" alt="profile picture" />
+              {% else %}
+              <img class="profile-img" src="{{site.baseurl}}/assets/images/profile.png" alt="profile picture" />
+              {% endinf %}
+
                 <h1 class="name">{% if site.name %}{{site.name}}{% else %}Alan Doe{% endif %}</h1>
                 <h3 class="tagline">{% if site.tagline %}{{site.tagline}}{% else %}PhD Candidate{% endif %}</h3>
             </div><!--//profile-container-->
@@ -17,7 +22,7 @@
                     <li class="email"><i class="fa fa-envelope"></i><a href="mailto:alavi.3@wright.edu">alavi.3@wright.edu</a></li>
                     {% endif %}
 
-                  
+
 
                     {% if site.linkedin %}
                     <li class="linkedin"><i class="fa fa-linkedin"></i><a href="https://in.linkedin.com/in/{{site.linkedin}}" target="_blank">linkedin.com/in/{{site.linkedin}}</a></li>
@@ -29,9 +34,5 @@
                 </ul>
             </div><!--//contact-container-->
            {% include education.html %}
-           {% include language.html %}
            {% include interests.html %}
-           {% include about.html %}
-
-
         </div><!--//sidebar-wrapper-->
